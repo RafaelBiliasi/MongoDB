@@ -1,0 +1,25 @@
+use("loja")
+
+db.produtos.find()
+
+db.produtos.find({
+    preco: { $gte: 2000 }
+})
+
+db.produtos.find({
+    $and: [
+        { categoria: "Móveis" },
+        { avaliacao: { $gt: 4.5 } }
+    ]
+})
+
+db.produtos.find({
+    $or: [
+        { preco: { $lt: 2000 } },
+        { estoque: { $gt: 20 } }
+    ]
+})
+
+db.produtos.find({
+    avaliacao: { $exists: true }
+})
